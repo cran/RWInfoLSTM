@@ -1,0 +1,39 @@
+Package: RWInfoLSTM
+Type: Package
+Title: Random Walk-Informed LSTM for Time Series Forecasting
+Version: 0.1.0
+Authors@R: c(
+    person(given = "Md", family = "Yeasin", role = "aut"),
+    person(given = "Ranjit Kumar", family = "Paul",
+           email = "ranjitstat@gmail.com", role = c("aut", "cre")),
+    person(given = "Pushkar", family = "Bora", role = "aut")
+  )
+Maintainer: Ranjit Kumar Paul <ranjitstat@gmail.com>
+Description: Implements a Random Walk (RW)-informed Long Short-Term Memory
+    (LSTM) network for univariate time series forecasting. The LSTM is
+    trained on the full series with a composite loss that blends the usual
+    mean squared error (MSE) between predictions and observations with the
+    MSE between predictions and the fitted Random Walk, weighted by a
+    parameter lambda (0 gives a standard LSTM, 1 gives a fully RW-guided
+    LSTM). The Random Walk, either simple or with drift, is selected
+    automatically by its in-sample root mean squared error (RMSE), and the
+    lambda value with the lowest training RMSE is retained. The LSTM
+    hyperparameters can be supplied manually or tuned by grid search, and
+    functions for out-of-sample forecasting, accuracy measures and plots
+    are provided. The methodology is motivated by hybrid forecasting
+    framework proposed by Yeasin and Paul (2024)
+    <doi:10.1007/s11227-023-05542-3>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: torch (>= 0.11.0), coro, ggplot2 (>= 3.4.0), cli (>= 3.6.0),
+        stats, utils
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.1
+NeedsCompilation: no
+Packaged: 2026-10-19 16:24:45 UTC; borap
+Author: Md Yeasin [aut],
+  Ranjit Kumar Paul [aut, cre],
+  Pushkar Bora [aut]
+Repository: CRAN
+Date/Publication: 2026-10-29 12:00:02 UTC
